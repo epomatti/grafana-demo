@@ -1,0 +1,13 @@
+- name: Copy the hosts file
+  ansible.builtin.copy:
+    src: files/hosts
+    dest: /etc/ansible/hosts
+    owner: ansible
+    group: ansible
+    mode: "0600"
+
+# This will be used to avoid "changed" status
+- name: Check if the token exists
+  ansible.builtin.stat:
+    path: /etc/ansible/.token
+  register: file_stat

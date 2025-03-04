@@ -10,9 +10,8 @@ Vagrant.configure("2") do |config|
   end
   
   config.vm.provision "shell", inline: <<-SHELL
-    apt update
-    apt upgrade -y
-	  apt install -y software-properties-common zip unzip
+    apt update && apt upgrade -y
+	  apt install -y software-properties-common
 	  add-apt-repository --yes --update ppa:ansible/ansible
 	  apt install -y ansible
     SHELL

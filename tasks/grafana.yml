@@ -1,0 +1,6 @@
+- name: General software dependencies
+  ansible.builtin.apt:
+    pkg:
+      - gcc
+      - unzip
+      - zip
