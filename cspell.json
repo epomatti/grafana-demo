@@ -7,6 +7,7 @@
         "ansible",
         "cpus",
         "grafana",
+        "keyrings",
         "NOPASSWD",
         "virtualbox"
     ],

@@ -4,16 +4,32 @@ Grafana Alloy deployment on a Linux host.
 
 ## Create the Linux Host
 
+This setup will use Vagrant with VirtualBox to create a local test instance:
+
 ```sh
 mkdir -p vagrant/grafana-demo
 cd vagrant/grafana-demo
 
 vagrant init ubuntu/jammy64
+```
+
+Use the [utils/Vagrantfile](./utils/Vagrantfile) content to optimize the box creation.
+
+Then, create the box:
+
+```sh
 vagrant up
 vagrant ssh
 ```
 
-##
+## Setup Grafana
+
+Use the Ansible playbooks to automate the Grafana configuration.
+
+> [!TIP]
+> In preference of fine-grained control, I'm implementing the [Install Grafana Alloy on Linux](https://grafana.com/docs/alloy/latest/set-up/install/linux/) steps, but an official Ansible role [is available](https://grafana.com/docs/alloy/latest/set-up/install/ansible/).
+
+
 
 [Register a Linux server](https://epomatti.grafana.net/connections/add-new-connection/linux-node) with [Alloy](https://grafana.com/docs/alloy/latest/get-started/configuration-syntax/) to Grafana.
 
