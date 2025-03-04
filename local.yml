@@ -1,5 +1,5 @@
 ---
-- name: WSL
+- name: Grafana
   hosts: localhost
   connection: local
   become: true
@@ -17,5 +17,7 @@
       ansible.builtin.include_tasks: tasks/users.yml
     - name: Copy required files
       ansible.builtin.include_tasks: tasks/files.yml
+    - name: Packages
+      ansible.builtin.include_tasks: tasks/packages.yml
     - name: Grafana
       ansible.builtin.include_tasks: tasks/grafana.yml

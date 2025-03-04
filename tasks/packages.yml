@@ -1,0 +1,10 @@
+---
+- name: Install dependencies and utilities
+  ansible.builtin.apt:
+    pkg:
+      # Required by Alloy
+      - gcc
+      
+      # May be used when running the Linux installation script
+      - unzip
+      - zip

@@ -1,6 +1,28 @@
-- name: General software dependencies
+---
+- name: Creates the keyrings directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings/
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: "0755"
+
+- name: Add the Grafana repository key
+  ansible.builtin.get_url:
+    url: https://apt.grafana.com/gpg.key
+    dest: /etc/apt/keyrings/grafana.asc
+    mode: '0644'
+
+- name: Add the Grafana repository
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/grafana.asc] https://apt.grafana.com stable main
+    state: present
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Install Alloy and it's dependencies
   ansible.builtin.apt:
     pkg:
-      - gcc
-      - unzip
-      - zip
+      - alloy
