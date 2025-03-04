@@ -49,6 +49,9 @@ https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux-bina
 - https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
 - https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
 
+```sh
+sudo journalctl -u alloy
+```
 
 ## Install Alloy
 

@@ -31,16 +31,16 @@
   ansible.builtin.copy:
     src: alloy/alloy
     dest: /etc/default/alloy
-    owner: root
-    group: root
+    owner: alloy
+    group: alloy
     mode: "0600"
 
 - name: Copy the customized Alloy configuration
   ansible.builtin.copy:
     src: alloy/config.alloy
     dest: /etc/alloy/config.alloy
-    owner: root
-    group: root
+    owner: alloy
+    group: alloy
     mode: "0600"
 
 - name: Replace GCLOUD_SCRAPE_INTERVAL

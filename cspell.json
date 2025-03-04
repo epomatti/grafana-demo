@@ -7,6 +7,7 @@
         "ansible",
         "cpus",
         "grafana",
+        "journalctl",
         "keyrings",
         "loki",
         "NOPASSWD",
