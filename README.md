@@ -22,6 +22,34 @@ vagrant up
 vagrant ssh
 ```
 
+## Configuration
+
+> [!NOTE]
+> Using the standard architecture. The Fleet Management feature is currently in [public preview](https://grafana.com/docs/grafana-cloud/whats-new/2024-11-21-fleet-management-in-public-preview/) and it was giving me trouble
+
+Create the variables file to configure Alloy:
+
+```sh
+sudo touch /etc/ansible/alloy_vars.yml
+sudo chmod 600 /etc/ansible/alloy_vars.yml
+```
+
+Edit the variables file using the [utils/template_alloy_vars.yml](utils/template_alloy_vars.yml) template.
+
+Create and edit the API Key file that will be used to authenticate to Grafana Cloud:
+
+```sh
+sudo touch /etc/alloy/gcloud_rw_api_key
+sudo chmod 600 /etc/alloy/gcloud_rw_api_key
+```
+
+
+https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux-binary.sh
+
+- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
+- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
+
+
 ## Install Alloy
 
 Use the Ansible playbooks to automate the Grafana configuration.
@@ -44,6 +72,10 @@ Verify that Alloy is installed and running:
 ```sh
 sudo systemctl status alloy
 ```
+
+## Collect Data
+
+https://grafana.com/docs/alloy/latest/reference/components/prometheus/prometheus.exporter.unix/
 
 ## Configuring Alloy
 

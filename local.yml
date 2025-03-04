@@ -3,6 +3,8 @@
   hosts: localhost
   connection: local
   become: true
+  vars_files:
+    - /etc/ansible/alloy_vars.yml
 
   pre_tasks:
     - name: Update repositories

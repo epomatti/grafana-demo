@@ -8,7 +8,9 @@
         "cpus",
         "grafana",
         "keyrings",
+        "loki",
         "NOPASSWD",
+        "prometheus",
         "virtualbox"
     ],
     "ignoreWords": [],

@@ -29,11 +29,26 @@
 
 - name: Copy the customized Alloy defaults
   ansible.builtin.copy:
-    src: alloy/etc-default-alloy
+    src: alloy/alloy
     dest: /etc/default/alloy
     owner: root
     group: root
-    mode: "0644"
+    mode: "0600"
+
+- name: Copy the customized Alloy configuration
+  ansible.builtin.copy:
+    src: alloy/config.alloy
+    dest: /etc/alloy/config.alloy
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Replace 1
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_SCRAPE_INTERVAL\\}"
+    replace: "{{ GCLOUD_SCRAPE_INTERVAL }}"
+    backup: false
 
 - name: Make sure Alloy is running and enabled
   ansible.builtin.systemd_service:
