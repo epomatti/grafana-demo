@@ -3,8 +3,7 @@
   ansible.builtin.apt:
     pkg:
       # Required by Alloy
-      - gcc
-      
-      # May be used when running the Linux installation script
+      - gcc      
+      # May be used when running the Alloy installation script for Linux
       - unzip
       - zip

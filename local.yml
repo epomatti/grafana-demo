@@ -13,8 +13,6 @@
       # changed_when: false
 
   tasks:
-    - name: Create the users
-      ansible.builtin.include_tasks: tasks/users.yml
     - name: Copy required files
       ansible.builtin.include_tasks: tasks/files.yml
     - name: Packages

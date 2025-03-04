@@ -29,6 +29,21 @@ Use the Ansible playbooks to automate the Grafana configuration.
 > [!TIP]
 > In preference of fine-grained control, I'm implementing the [Install Grafana Alloy on Linux](https://grafana.com/docs/alloy/latest/set-up/install/linux/) steps, but an official Ansible role [is available](https://grafana.com/docs/alloy/latest/set-up/install/ansible/).
 
+Clone the Git repository, and copy the [utils/ansible-pull.sh](utils/ansible-pull.sh) file for execution convenience.
+
+Within the pull file, replace the `TOKEN` variable with a contents read-only Git token to be used for pulling configuration updates. You may instead prefer to use SSH and avoid dealing with tokens.
+
+```sh
+sudo pull.sh
+```
+
+
+
+
+
+
+
+
 
 
 [Register a Linux server](https://epomatti.grafana.net/connections/add-new-connection/linux-node) with [Alloy](https://grafana.com/docs/alloy/latest/get-started/configuration-syntax/) to Grafana.
