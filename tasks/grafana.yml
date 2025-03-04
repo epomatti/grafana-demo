@@ -43,11 +43,39 @@
     group: root
     mode: "0600"
 
-- name: Replace 1
+- name: Replace GCLOUD_SCRAPE_INTERVAL
   ansible.builtin.replace:
     path: /etc/alloy/config.alloy
     regexp: "\\{GCLOUD_SCRAPE_INTERVAL\\}"
     replace: "{{ GCLOUD_SCRAPE_INTERVAL }}"
+    backup: false
+
+- name: Replace GCLOUD_HOSTED_METRICS_URL
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_HOSTED_METRICS_URL\\}"
+    replace: "{{ GCLOUD_HOSTED_METRICS_URL }}"
+    backup: false
+
+- name: Replace GCLOUD_HOSTED_METRICS_ID
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_HOSTED_METRICS_ID\\}"
+    replace: "{{ GCLOUD_HOSTED_METRICS_ID }}"
+    backup: false
+
+- name: Replace GCLOUD_HOSTED_LOGS_URL
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_HOSTED_LOGS_URL\\}"
+    replace: "{{ GCLOUD_HOSTED_LOGS_URL }}"
+    backup: false
+
+- name: Replace GCLOUD_HOSTED_LOGS_ID
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_HOSTED_LOGS_ID\\}"
+    replace: "{{ GCLOUD_HOSTED_LOGS_ID }}"
     backup: false
 
 - name: Make sure Alloy is running and enabled
