@@ -78,6 +78,13 @@
     replace: "{{ GCLOUD_HOSTED_LOGS_ID }}"
     backup: false
 
+- name: Replace GCLOUD_RW_API_KEY
+  ansible.builtin.replace:
+    path: /etc/alloy/config.alloy
+    regexp: "\\{GCLOUD_RW_API_KEY\\}"
+    replace: "{{ GCLOUD_RW_API_KEY }}"
+    backup: false
+
 - name: Make sure Alloy is running and enabled
   ansible.builtin.systemd_service:
     name: alloy

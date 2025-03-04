@@ -41,8 +41,8 @@ prometheus.remote_write "metrics_service" {
     url = "{GCLOUD_HOSTED_METRICS_URL}"
 
     basic_auth {
-      username      = "{GCLOUD_HOSTED_METRICS_ID}"
-      password_file = "/etc/alloy/gcloud_rw_api_key"
+      username = "{GCLOUD_HOSTED_METRICS_ID}"
+      password = "{GCLOUD_RW_API_KEY}"
     }
   }
 }
@@ -52,8 +52,8 @@ loki.write "grafana_cloud_loki" {
     url = "{GCLOUD_HOSTED_LOGS_URL}"
 
     basic_auth {
-      username      = "{GCLOUD_HOSTED_LOGS_ID}"
-      password_file = "/etc/alloy/gcloud_rw_api_key"
+      username = "{GCLOUD_HOSTED_LOGS_ID}"
+      password = "{GCLOUD_RW_API_KEY}"
     }
   }
 }
