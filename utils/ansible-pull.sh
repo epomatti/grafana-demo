@@ -2,4 +2,4 @@
 
 token='<TOKEN>'
 
-/usr/bin/ansible-pull -o -U "https://x-token-auth:$token@epomatti/grafana-demo.git"
+/usr/bin/ansible-pull -o -U "https://x-token-auth:$token@github.com/epomatti/grafana-demo.git"

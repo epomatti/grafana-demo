@@ -33,8 +33,10 @@ Clone the Git repository, and copy the [utils/ansible-pull.sh](utils/ansible-pul
 
 Within the pull file, replace the `TOKEN` variable with a contents read-only Git token to be used for pulling configuration updates. You may instead prefer to use SSH and avoid dealing with tokens.
 
+Run the configuration playbook:
+
 ```sh
-sudo pull.sh
+sudo ./pull.sh
 ```
 
 
