@@ -27,6 +27,14 @@
     pkg:
       - alloy
 
+- name: Copy the customized Alloy defaults
+  ansible.builtin.copy:
+    src: alloy/etc-default-alloy
+    dest: /etc/default/alloy
+    owner: root
+    group: root
+    mode: "0644"
+
 - name: Make sure Alloy is running and enabled
   ansible.builtin.systemd_service:
     name: alloy

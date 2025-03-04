@@ -45,12 +45,7 @@ Verify that Alloy is installed and running:
 sudo systemctl status alloy
 ```
 
-
-
-
-
-
-
+## Configuring Alloy
 
 [Register a Linux server](https://epomatti.grafana.net/connections/add-new-connection/linux-node) with [Alloy](https://grafana.com/docs/alloy/latest/get-started/configuration-syntax/) to Grafana.
 
