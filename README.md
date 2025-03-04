@@ -22,7 +22,7 @@ vagrant up
 vagrant ssh
 ```
 
-## Setup Grafana
+## Install Alloy
 
 Use the Ansible playbooks to automate the Grafana configuration.
 
@@ -39,7 +39,11 @@ Run the configuration playbook:
 sudo ./pull.sh
 ```
 
+Verify that Alloy is installed and running:
 
+```sh
+sudo systemctl status alloy
+```
 
 
 

@@ -26,3 +26,9 @@
   ansible.builtin.apt:
     pkg:
       - alloy
+
+- name: Make sure Alloy is running and enabled
+  ansible.builtin.systemd_service:
+    name: alloy
+    state: started
+    enabled: true
