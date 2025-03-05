@@ -22,7 +22,7 @@ vagrant up
 vagrant ssh
 ```
 
-## Configuration
+## Setup
 
 > [!NOTE]
 > Using the standard architecture. The Fleet Management feature is currently in [public preview](https://grafana.com/docs/grafana-cloud/whats-new/2024-11-21-fleet-management-in-public-preview/) and it was giving me trouble
@@ -34,18 +34,6 @@ sudo touch /etc/ansible/alloy_vars.yml
 sudo chmod 600 /etc/ansible/alloy_vars.yml
 sudo vim /etc/ansible/alloy_vars.yml
 ```
-
-Service logs can be viewed with in the journal:
-
-```sh
-sudo journalctl -u alloy
-```
-
-The configuration is a combination from the documentation and guided setup in the Grafana console, with reference files:
-
-- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
-- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
-
 
 ## Install Alloy
 
@@ -61,7 +49,7 @@ Within the pull file, replace the `TOKEN` variable with a contents read-only Git
 Run the configuration playbook:
 
 ```sh
-sudo ./pull.sh
+sudo bash pull.sh
 ```
 
 Verify that Alloy is installed and running:
@@ -81,6 +69,17 @@ Configuration will be updated to the default path:
 ```sh
 /etc/alloy/config.alloy
 ```
+
+Service logs can be viewed with in the journal:
+
+```sh
+sudo journalctl -u alloy
+```
+
+The configuration is a combination from the documentation and guided setup in the Grafana console, with reference files:
+
+- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
+- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
 
 ## Extras
 
