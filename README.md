@@ -35,14 +35,17 @@ sudo chmod 600 /etc/ansible/alloy_vars.yml
 sudo vim /etc/ansible/alloy_vars.yml
 ```
 
-https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux-binary.sh
-
-- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
-- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
+Service logs can be viewed with in the journal:
 
 ```sh
 sudo journalctl -u alloy
 ```
+
+The configuration is a combination from the documentation and guided setup in the Grafana console, with reference files:
+
+- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
+- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
+
 
 ## Install Alloy
 
@@ -67,37 +70,25 @@ Verify that Alloy is installed and running:
 sudo systemctl status alloy
 ```
 
-## Collect Data
+Manual changes can also be reloaded instead of a restart:
 
-https://grafana.com/docs/alloy/latest/reference/components/prometheus/prometheus.exporter.unix/
+```sh
+sudo systemctl reload alloy
+```
 
-## Configuring Alloy
-
-[Register a Linux server](https://epomatti.grafana.net/connections/add-new-connection/linux-node) with [Alloy](https://grafana.com/docs/alloy/latest/get-started/configuration-syntax/) to Grafana.
-
-Configuration is derived from the following template files:
-
-- https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
-- https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
-
-You can [configure Alloy](https://grafana.com/docs/alloy/latest/configure/) after it's installation:
+Configuration will be updated to the default path:
 
 ```sh
 /etc/alloy/config.alloy
 ```
 
-Checkout the Linux [detailed configuration](https://grafana.com/docs/alloy/latest/configure/linux/) page for instructions.
+## Extras
 
-Commands to manage Alloy:
+Additional connectors and settings can be implemented such as [prometheus.exporter.unix](https://grafana.com/docs/alloy/latest/reference/components/prometheus/prometheus.exporter.unix/).
 
-```sh
-sudo systemctl reload alloy
-sudo systemctl restart alloy
-```
+For extended troubleshooting, enable the UI by passing [additional command-line flags](https://grafana.com/docs/alloy/latest/configure/linux/#pass-additional-command-line-flags).
 
-For troubleshooting, enable the UI by passing [additional command-line flags](https://grafana.com/docs/alloy/latest/configure/linux/#pass-additional-command-line-flags).
-
-Reference:
+Reference articles:
 
 - [Introducing Grafana Alloy, A Distribution of the OTel Collector | GrafanaCON 2024 | Grafana](https://youtu.be/d9zLeFuIFIk)
 - [Collect logs with Grafana Alloy](https://grafana.com/docs/grafana-cloud/send-data/logs/collect-logs-with-alloy/)
