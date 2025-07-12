@@ -46,10 +46,14 @@ Clone the Git repository, and copy the [utils/ansible-pull.sh](utils/ansible-pul
 
 Within the pull file, replace the `TOKEN` variable with a contents read-only Git token to be used for pulling configuration updates. You may instead prefer to use SSH and avoid dealing with tokens.
 
+```sh
+git clone https://oauth2:oauth-key-goes-here@github.com/username/repo.git
+```
+
 Run the configuration playbook:
 
 ```sh
-sudo bash pull.sh
+sudo bash utils/ansible-pull.sh
 ```
 
 Verify that Alloy is installed and running:
@@ -70,7 +74,7 @@ Configuration will be updated to the default path:
 /etc/alloy/config.alloy
 ```
 
-Service logs can be viewed with in the journal:
+Service logs can be viewed within the journal:
 
 ```sh
 sudo journalctl -u alloy
@@ -80,6 +84,10 @@ The configuration is a combination from the documentation and guided setup in th
 
 - https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-linux.sh
 - https://storage.googleapis.com/cloud-onboarding/alloy/config/config.alloy
+
+## Alerts
+
+
 
 ## Extras
 
