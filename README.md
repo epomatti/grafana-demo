@@ -47,7 +47,7 @@ Clone the Git repository, and copy the [utils/ansible-pull.sh](utils/ansible-pul
 Within the pull file, replace the `TOKEN` variable with a contents read-only Git token to be used for pulling configuration updates. You may instead prefer to use SSH and avoid dealing with tokens.
 
 ```sh
-git clone https://oauth2:oauth-key-goes-here@github.com/username/repo.git
+git clone https://oauth2:oauth-key-goes-here@github.com/epomatti/grafana-demo.git
 ```
 
 Run the configuration playbook:
@@ -91,12 +91,6 @@ A high CPU query can be used from [here](https://medium.com/@18bhavyasharma/sett
 
 ```sh
 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
-```
-
-Install the stress tool:
-
-```sh
-sudo apt install -y stress-ng
 ```
 
 Check the number of CPUs:
