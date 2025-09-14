@@ -87,7 +87,29 @@ The configuration is a combination from the documentation and guided setup in th
 
 ## Alerts
 
+A high CPU query can be used from [here](https://medium.com/@18bhavyasharma/setting-up-alerts-for-cpu-usage-with-prometheus-and-grafana-40623e7a60b3).
 
+```sh
+100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+```
+
+Install the stress tool:
+
+```sh
+sudo apt install -y stress-ng
+```
+
+Check the number of CPUs:
+
+```sh
+lscpu
+```
+
+Run the stress to simulate the alert:
+
+```sh
+sudo stress-ng --cpu 2 -v --timeout 300s
+```
 
 ## Extras
 
