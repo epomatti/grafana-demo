@@ -87,9 +87,11 @@ The configuration is a combination from the documentation and guided setup in th
 
 ## Alerts
 
+### High CPU
+
 A high CPU query can be used from [here](https://medium.com/@18bhavyasharma/setting-up-alerts-for-cpu-usage-with-prometheus-and-grafana-40623e7a60b3).
 
-```sh
+```
 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
 ```
 
@@ -103,6 +105,20 @@ Run the stress to simulate the alert:
 
 ```sh
 sudo stress-ng --cpu 2 -v --timeout 300s
+```
+
+### Low Storage
+
+The query for low store is like this:
+
+```
+max(100 - ((node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes)) by (instance)
+```
+
+Use the `mountpoint` attribute to further incrase the desired filter:
+
+```
+max(100 - ((node_filesystem_avail_bytes{mountpoint="/"} * 100) / node_filesystem_size_bytes{mountpoint="/"})) by (instance)
 ```
 
 ## Extras
